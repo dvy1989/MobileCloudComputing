@@ -1,5 +1,5 @@
-# Author: Valdimir Dobrodeev
-# Training script
+# Author: Vladimir Dobrodeev
+# The script performs training
 
 library("FNN")
 

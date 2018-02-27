@@ -13,3 +13,13 @@ prepare_dataset <- function(dataset){
   dataset <- dataset[, base_station:=as.numeric(base_station)]
   return(dataset)
 }
+
+# Changes values of traffic_volume to ditinguish application intervals from each other
+prepare_with_change <- function(dataset){
+  dataset <- prepare_dataset(dataset)
+  max.traffic.volume <- max(dataset$traffic_volume)
+  dataset <- dataset[, app_id:=as.numeric(app_id)]
+  dataset[,4] <- dataset[,4] + dataset[,5] * max.traffic.volume
+  dataset <- dataset[, app_id:=as.character(app_id)]
+  return(dataset)
+}

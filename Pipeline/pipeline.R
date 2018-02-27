@@ -12,7 +12,8 @@ start <- Sys.time()
 dataset <- read_dataset("0421.txt")
 
 # PREPARING DATA
-prepared_set <- prepare_dataset(dataset)
+# prepared_set <- prepare_dataset(dataset)
+prepared_set <- prepare_with_change(dataset)
 
 # MAKING TRAIN AND TEST SETS
 train_and_test_sets <- train_and_test(prepared_set)
@@ -20,7 +21,7 @@ train <- train_and_test_sets[[1]]
 test <- train_and_test_sets[[2]]
 
 # TESTING MODEL
-calculated_labels <- test_model(train, test, field.set.2)
+calculated_labels <- test_model(train, test, field.set.1)
 
 #VALIDATION
 print(validate_model(calculated_labels, test$app_id))
